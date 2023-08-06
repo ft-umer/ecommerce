@@ -52,9 +52,10 @@ export default function SignUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (formData.password === formData.c_password) {
+            const E_commerce = process.env.backend
             try {
                 // Send the user data to the backend API
-                const response = await axios.post('http://localhost:5000/api/createUsers', formData);
+                const response = await axios.post(`${E_commerce}/api/createUsers`, formData);
                 console.log('User created:', response.data);
                 toast.success('Sign Up Successfully!', {
                     position: 'top-center',
