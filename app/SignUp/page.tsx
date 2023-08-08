@@ -53,7 +53,7 @@ export default function SignUp() {
         if (formData.password === formData.c_password) {
             
             try {
-                const E_commerce = process.env.backend
+                const E_commerce = process.env.BACKEND_URL
                 // Send the user data to the backend API
                 const response = await axios.post(`${E_commerce}/createUsers`, formData);
                 console.log('User created:', response.data);

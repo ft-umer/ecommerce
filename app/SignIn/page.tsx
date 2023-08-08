@@ -29,7 +29,7 @@ export default function SignIn() {
 
     
     try {
-      const E_commerce = process.env.backend
+      const E_commerce = process.env.BACKEND_URL
       // Send the login data to the backend API
       const response = await axios.post(`${E_commerce}/login`, {
         email: formData.get('email'),
