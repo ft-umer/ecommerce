@@ -27,10 +27,11 @@ export default function SignIn() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
-    const E_commerce = process.env.backend
+    
     try {
+      const E_commerce = process.env.backend
       // Send the login data to the backend API
-      const response = await axios.post(`${E_commerce}/api/login`, {
+      const response = await axios.post(`${E_commerce}/login`, {
         email: formData.get('email'),
         password: formData.get('password'),
       });
@@ -50,8 +51,18 @@ export default function SignIn() {
     setTimeout(() => {
         router.push('/');
     }, 3000);
-    } catch (error) {
+    } catch (error:any) {
+      
       console.error('Error logging in:', error);
+      if (error.response && error.response.data.error === 'Invalid credentials') {
+        toast.error('Incorrect password!', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+        })}
       toast.error('Error logging in!', {
         position: 'top-center',
         autoClose: 3000, // Time in milliseconds to close the toast automatically

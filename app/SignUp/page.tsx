@@ -51,12 +51,13 @@ export default function SignUp() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (formData.password === formData.c_password) {
-            const E_commerce = process.env.backend
+            
             try {
+                const E_commerce = process.env.backend
                 // Send the user data to the backend API
-                const response = await axios.post(`${E_commerce}/api/createUsers`, formData);
+                const response = await axios.post(`${E_commerce}/createUsers`, formData);
                 console.log('User created:', response.data);
-                toast.success('Sign Up Successfully!', {
+                toast.success('Signed Up Successfully!', {
                     position: 'top-center',
                     autoClose: 3000, // Time in milliseconds to close the toast automatically
                     hideProgressBar: false, // Show or hide progress bar
