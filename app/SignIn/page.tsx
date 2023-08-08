@@ -27,12 +27,10 @@ export default function SignIn() {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
-    // const E_commerce = process.env.backend
-
-
+    const E_commerce = process.env.backend
     try {
       // Send the login data to the backend API
-      const response = await axios.post('http://localhost:5000/api/login', {
+      const response = await axios.post(`${E_commerce}/api/login`, {
         email: formData.get('email'),
         password: formData.get('password'),
       });
