@@ -21,8 +21,13 @@ const categoriesData = [
   // Add more categories as needed
 ];
 
+interface CategoryCardProps {
+  name: string;
+  imageUrl: string;
+}
 
-const CategoryCard = ({ name, imageUrl }) => {
+
+const CategoryCard: React.FC<CategoryCardProps> = ({ name, imageUrl }) => {
   return (
     <Card>
       <CardMedia component="img" height="200" image={imageUrl} alt={name} />
