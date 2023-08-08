@@ -29,9 +29,10 @@ export default function SignIn() {
 
     
     try {
-      const E_commerce = process.env.BACKEND_URL
+       
+      console.log(process.env.BACKEND_URL)
       // Send the login data to the backend API
-      const response = await axios.post(`${E_commerce}/login`, {
+      const response = await axios.post(`http://localhost:5000/api/login`, {
         email: formData.get('email'),
         password: formData.get('password'),
       });
@@ -60,18 +61,17 @@ export default function SignIn() {
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: false,
+            pauseOnHover: true,
             draggable: false,
-        })}
-      toast.error('Error logging in!', {
-        position: 'top-center',
-        autoClose: 3000, // Time in milliseconds to close the toast automatically
-        hideProgressBar: false, // Show or hide progress bar
-        closeOnClick: true, // Close the toast when clicked
-        pauseOnHover: true, // Pause the autoClose timer when hovered
-        draggable: true, // Allow dragging the toast
-        progress: undefined, // A custom progress bar component
-    });
+        })}else if (error.response && error.response.data.error === 'User not found') {
+          toast.error('User not found!', {
+              position: 'top-center',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: false,
+          })}
     }
   };
   return (

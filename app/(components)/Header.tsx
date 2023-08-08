@@ -21,6 +21,12 @@ const Navbar = () => {
           <Link href="/" className='a a_h' color="inherit">
             Home
           </Link>
+          <Link href="/" className='a a_h' color="inherit">
+            Cart
+          </Link>
+          <Link href="/Checkout" className='a a_h' color="inherit">
+            Checkout
+          </Link>
           <Link href="/SignIn" className='a a_h' color="inherit">
             SignIn
           </Link>
@@ -28,13 +34,6 @@ const Navbar = () => {
           <Link href="/SignUp" className='a a_h' color="inherit">
             SignUp
           </Link>
-          <Link href="/" className='a a_h' color="inherit">
-            Cart
-          </Link>
-          <Link href="/Checkout" className='a a_h' color="inherit">
-            Checkout
-          </Link>
-          {/* Add more links as needed */}
         </div>
       </Toolbar>
     </AppBar>
