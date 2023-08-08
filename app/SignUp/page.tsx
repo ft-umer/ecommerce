@@ -84,9 +84,9 @@ export default function SignUp() {
                     toast.error('Error creating user', {
                         position: 'top-center',
                         autoClose: 5000,
-                        hideProgressBar: true,
+                        hideProgressBar: false,
                         closeOnClick: true,
-                        pauseOnHover: false,
+                        pauseOnHover: true,
                         draggable: false,
                     });
                 }
