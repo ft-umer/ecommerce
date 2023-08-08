@@ -52,7 +52,15 @@ export default function SignIn() {
     }, 3000);
     } catch (error) {
       console.error('Error logging in:', error);
-      // Handle login error, show error message to the user
+      toast.error('Password not found!', {
+        position: 'top-center',
+        autoClose: 3000, // Time in milliseconds to close the toast automatically
+        hideProgressBar: false, // Show or hide progress bar
+        closeOnClick: true, // Close the toast when clicked
+        pauseOnHover: true, // Pause the autoClose timer when hovered
+        draggable: true, // Allow dragging the toast
+        progress: undefined, // A custom progress bar component
+    });
     }
   };
   return (
