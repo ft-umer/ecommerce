@@ -44,18 +44,17 @@ export default function SignUp() {
         c_password: ''
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (formData.password === formData.c_password) {
-            const E_commerce = process.env.backend
+            // const E_commerce = process.env.backend
             try {
                 // Send the user data to the backend API
-                const response = await axios.post(`${E_commerce}/api/createUsers`, formData);
+                const response = await axios.post('http://localhost:5000/api/createUsers', formData);
                 console.log('User created:', response.data);
                 toast.success('Sign Up Successfully!', {
                     position: 'top-center',
@@ -70,12 +69,12 @@ export default function SignUp() {
                     router.push('/SignIn');
                 }, 3000);
                 // Handle success, show a success message or redirect to another page
-            } catch (error) {
+            } catch (error:any) {
                 if (error.response && error.response.data.error === 'Email already exists') {
                     toast.warning('Email already exists', {
                         position: 'top-center',
                         autoClose: 5000,
-                        hideProgressBar: true,
+                        hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: false,
                         draggable: false,
@@ -97,9 +96,9 @@ export default function SignUp() {
             toast.warning('Password did not matched', {
                 position: 'top-center',
                 autoClose: 5000,
-                hideProgressBar: true,
+                hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: false,
+                pauseOnHover: true,
                 draggable: false,
             });
         }

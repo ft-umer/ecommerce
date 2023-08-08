@@ -23,16 +23,16 @@ const defaultTheme = createTheme();
 export default function SignIn() {
   const router = useRouter();
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event :React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
-    const E_commerce = process.env.backend
+    // const E_commerce = process.env.backend
 
 
     try {
       // Send the login data to the backend API
-      const response = await axios.post(`${E_commerce}/api/login`, {
+      const response = await axios.post('http://localhost:5000/api/login', {
         email: formData.get('email'),
         password: formData.get('password'),
       });
@@ -111,12 +111,12 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Link href="#">
                   Forgot password?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/SignUp" variant="body2">
+                <Link href="/SignUp">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
