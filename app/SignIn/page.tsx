@@ -52,7 +52,7 @@ export default function SignIn() {
     }, 3000);
     } catch (error) {
       console.error('Error logging in:', error);
-      toast.error('Password not found!', {
+      toast.error('Error logging in!', {
         position: 'top-center',
         autoClose: 3000, // Time in milliseconds to close the toast automatically
         hideProgressBar: false, // Show or hide progress bar
