@@ -55,7 +55,7 @@ export default function SignUp() {
             try {
                 const E_commerce = process.env.BACKEND_URL
                 // Send the user data to the backend API
-                const response = await axios.post(`${E_commerce}/createUsers`, formData);
+                const response = await axios.post(`http://localhost:5000/api/createUsers`, formData);
                 console.log('User created:', response.data);
                 toast.success('Signed Up Successfully!', {
                     position: 'top-center',
