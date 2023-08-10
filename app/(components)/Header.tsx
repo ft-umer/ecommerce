@@ -3,6 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -16,23 +17,17 @@ const Navbar = () => {
           </Link>
         </Typography>
 
-        {/* Links on the right side */}
+        {/* Cart icon and Register/Login links on the right side */}
         <div>
-          <Link href="/" className='a a_h' color="inherit">
-            Home
-          </Link>
-          <Link href="/" className='a a_h' color="inherit">
-            Cart
-          </Link>
-          <Link href="/Checkout" className='a a_h' color="inherit">
-            Checkout
-          </Link>
+          <IconButton color="inherit" aria-label="cart">
+            <ShoppingCartIcon />
+          </IconButton>
           <Link href="/SignIn" className='a a_h' color="inherit">
-            SignIn
+            Sign In
           </Link>
           /
           <Link href="/SignUp" className='a a_h' color="inherit">
-            SignUp
+            Sign Up
           </Link>
         </div>
       </Toolbar>

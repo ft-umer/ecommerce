@@ -1,4 +1,6 @@
-import React from 'react';
+"use client"
+
+import React, { useState } from 'react';
 import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
 
 const categoriesData = [
@@ -27,15 +29,36 @@ interface CategoryCardProps {
 }
 
 
+
 const CategoryCard: React.FC<CategoryCardProps> = ({ name, imageUrl }) => {
+  const [isZoomed, setIsZoomed] = useState(false);
+
   return (
-    <Card>
+    <Card
+      className={isZoomed ? 'zoomed' : ''}
+      onMouseEnter={() => setIsZoomed(true)}
+      onMouseLeave={() => setIsZoomed(false)}
+    >
       <CardMedia component="img" height="200" image={imageUrl} alt={name} />
       <CardContent>
         <Typography variant="h6" component="div" align="center">
           {name}
         </Typography>
       </CardContent>
+
+      <style jsx>{`
+        .zoomed {
+          position: relative;
+        }
+
+        .zoomed:hover img {
+          transform: scale(1.1);
+        }
+
+        .zoomed img {
+          transition: transform 0.3s ease;
+        }
+      `}</style>
     </Card>
   );
 };
