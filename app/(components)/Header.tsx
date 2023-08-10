@@ -16,7 +16,7 @@ import Link from 'next/link';
 const Navbar = () => {
   const [menuAnchor, setMenuAnchor] = useState(null);
 
-  const handleMenuOpen = (event) => {
+  const handleMenuOpen = (event:any) => {
     setMenuAnchor(event.currentTarget);
   };
 
