@@ -2,6 +2,10 @@
     margin-bottom: 40px;
 }
 
+a{
+    text-decoration: none;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -28,6 +32,24 @@ a:hover{
     transition: 0.4s ease;
 }
 
-.active{
-    color: white;
+.cart_links{
+    color: black;
+    padding: 2px 10px;
+    display: flex;
+}
+
+.cart_links:hover{
+    color: grey;
+}
+
+.cart_icons{
+    margin-right: 10px;
+}
+
+.zoomed{
+    transition: transform 0.2s;
+}
+
+.zoomed:hover{
+    transform: scale(1.05);
 }

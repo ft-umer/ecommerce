@@ -2,23 +2,24 @@
 
 import React, { useState } from 'react';
 import { Card, CardContent, CardMedia, Container, Grid, Typography } from '@mui/material';
+import NextLink from 'next/link';
 
 const categoriesData = [
   {
-    name: 'Category 1',
+    name: 'CLOTHES',
     imageUrl: '/clothes.jpg',
   },
   {
-    name: 'Category 2',
-    imageUrl: '/clothes.jpg',
+    name: 'SHOES',
+    imageUrl: '/shoes.jpg',
   },
   {
-    name: 'Category 3',
-    imageUrl: '/clothes.jpg',
+    name: 'ELECTRONICS',
+    imageUrl: '/electronics.jpeg',
   },
   {
-    name: 'Category 3',
-    imageUrl: '/clothes.jpg',
+    name: 'Furniture',
+    imageUrl: '/furniture.jpg',
   },
   // Add more categories as needed
 ];
@@ -34,6 +35,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, imageUrl }) => {
   const [isZoomed, setIsZoomed] = useState(false);
 
   return (
+    <NextLink  href={`/category/${name.toLowerCase()}`} passHref>
     <Card
       className={isZoomed ? 'zoomed' : ''}
       onMouseEnter={() => setIsZoomed(true)}
@@ -60,6 +62,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, imageUrl }) => {
         }
       `}</style>
     </Card>
+    </NextLink>
   );
 };
 
@@ -71,7 +74,7 @@ const CategoriesPage = () => {
         </Typography>
       <Grid container spacing={2}>
         {categoriesData.map((category, index) => (
-          <Grid item key={index} xs={12} sm={6} md={3}>
+          <Grid className='zoomed' item key={index} xs={12} sm={6} md={3}>
             <CategoryCard name={category.name} imageUrl={category.imageUrl} />
           </Grid>
         ))}
