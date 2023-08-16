@@ -13,10 +13,6 @@ html, body, #__next {
     flex-direction: column;
   }
   
-  /* Ensure the content area takes up remaining space */
-  main {
-    flex: 1;
-  }
   
   /* Style the footer */
   footer {
