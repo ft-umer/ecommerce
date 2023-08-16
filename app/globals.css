@@ -1,3 +1,31 @@
+/* styles/globals.css */
+
+/* Ensure that the page takes up the full viewport height */
+html, body, #__next {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Create a flex container to push footer to the bottom */
+  #__next {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Ensure the content area takes up remaining space */
+  main {
+    flex: 1;
+  }
+  
+  /* Style the footer */
+  footer {
+    background-color: #333;
+    color: #cfcfcf;
+    padding:2px 0;
+    text-align: center;
+  }
+
 .mb{
     margin-bottom: 40px;
 }
@@ -11,11 +39,6 @@ body{
     padding: 0;
     color: rgb(19, 19, 19);
 }
-
-footer {
-    bottom: 0;
-    width: 100%;
-  }
 
 .a{
     text-decoration: none;
@@ -52,3 +75,13 @@ a:hover{
 .zoomed:hover{
     transform: scale(1.05);
 }
+
+@media (max-width: 600px) {
+    .header_links {
+      display: none;
+    }
+    .header_padd{
+        padding-left: 8px;
+        padding-right: 0;
+    }
+  }

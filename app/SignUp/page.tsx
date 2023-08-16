@@ -6,8 +6,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -17,7 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 
 const darkTheme = createTheme({
@@ -53,9 +51,10 @@ export default function SignUp() {
         if (formData.password === formData.c_password) {
             
             try {
-                const E_commerce = process.env.BACKEND_URL
+                const url = 'https://long-gray-bull-hose.cyclic.app'
+                console.log(url)
                 // Send the user data to the backend API
-                const response = await axios.post(`http://localhost:5000/api/createUsers`, formData);
+                const response = await axios.post(`${url}/api/createUsers`, formData);
                 console.log('User created:', response.data);
                 toast.success('Signed Up Successfully!', {
                     position: 'top-center',
@@ -77,7 +76,7 @@ export default function SignUp() {
                         autoClose: 5000,
                         hideProgressBar: false,
                         closeOnClick: true,
-                        pauseOnHover: false,
+                        pauseOnHover: true,
                         draggable: false,
                     });
                 } else {

@@ -16,27 +16,30 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Link from 'next/link';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
+import { useEffect, useState } from 'react';
 
-const defaultTheme = createTheme();
+
 
 export default function SignIn() {
   const router = useRouter();
-
+  const defaultTheme = createTheme();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
 
 
     try {
-
-      console.log(process.env.BACKEND_URL)
+      const url = 'https://long-gray-bull-hose.cyclic.app'
+      console.log(url)
       // Send the login data to the backend API
-      const response = await axios.post(`http://localhost:5000/api/login`, {
+      const response = await axios.post(`${url}/api/login`, {
         email: formData.get('email'),
         password: formData.get('password'),
       });
-
+      setIsLoggedIn(true);
       // Handle successful login
       console.log('Logged in successfully:', response.data);
 
@@ -51,7 +54,7 @@ export default function SignIn() {
       });
       setTimeout(() => {
         router.push('/');
-      }, 3000);
+      }, 2000);
     } catch (error: any) {
 
       console.error('Error logging in:', error);
@@ -101,6 +104,7 @@ export default function SignIn() {
                 margin="normal"
                 required
                 fullWidth
+                type='email'
                 id="email"
                 label="Email Address"
                 name="email"

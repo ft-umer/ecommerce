@@ -28,7 +28,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className} >
        <Header/>
-        {children}
+       <div style={{height:'100vh'}}>
+       {children}
+       </div>
         <Footer />
        <ToastContainer />
         </body>

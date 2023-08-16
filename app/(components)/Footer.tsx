@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Typography, Link, Box } from '@mui/material';
+import { Container, Typography, Box } from '@mui/material';
 
 const Footer = () => {
   return (
-    <footer style={{ marginTop: '100px', backgroundColor: '#333', color:'#cfcfcf' }}>
+    <footer style={{ backgroundColor: '#333', color: '#cfcfcf', marginTop: 'auto' }}>
       <Container maxWidth="lg">
         <Box py={2} textAlign="center">
           <Typography variant="body2">
